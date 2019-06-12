@@ -14,4 +14,4 @@ This website is created with prior permission by and in collaboration with Samue
 
 ### Browse the Collection
 
-{% include collection_gallery.html facet_by='object_type' collection='sf' %}
+{% include collection_gallery.html facet_by='_date' collection='sf' %}
