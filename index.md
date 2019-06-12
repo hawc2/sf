@@ -4,7 +4,7 @@ show_title: false
 banner:
   collection: sf
   pid: delanydhalgren
-  y: 50%
+  y: 100%
   height: '2000px'
 ---
 
