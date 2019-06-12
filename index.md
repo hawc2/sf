@@ -8,9 +8,9 @@ banner:
   height: '2000px'
 ---
 
-__Wax__ is a [minimal computing](http://go-dh.github.io/mincomp/) project for producing digital exhibitions focused on longevity, low costs, and flexibility. Our underlying technology is made to learn and to teach, and can produce beautifully rendered, high-quality image collections and scholarly exhibits. To start using Wax, please see our [documentation](https://minicomp.github.io/wiki/#/wax/) for installation instructions and more.
+Speculative Facebook curates a small selection of Samuel Delany's Facebook posts from the last few years, when he began taking photographs and regularly posting on Facebook images with commentary that provide a chronicle of the famous writer living in Philadelphia with his partner, Dennis, working in the late period of his writing career, presenting talks and editing unpublished work.
 
-The collection items in this demo are from The Museum of Islamic Art, sf, (courtesy of [WikiMedia](https://commons.wikimedia.org/wiki/Category:Google_Art_Project_works_in_The_Museum_of_Islamic_Art,_sf) and [Google Art Project](https://www.google.com/culturalinstitute/about/artproject/)) and The sf National Library (via [World Digital Library](https://www.wdl.org/en/)).
+This website is created with prior permission by and in collaboration with Samuel R. Delany.
 
 ### Browse the Collection
 

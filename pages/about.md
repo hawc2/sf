@@ -1,6 +1,6 @@
 ---
 layout: page
-title: What is Wax?
+title: Speculative Facebooks
 permalink: /about/
 ---
 
