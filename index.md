@@ -4,7 +4,7 @@ show_title: false
 banner:
   collection: sf
   pid: sf9
-  y: 100%
+  y: 90%
   height: '2000px'
 ---
 
@@ -14,4 +14,4 @@ This website is created with prior permission by and in collaboration with Samue
 
 ### Browse the Collection
 
-{% include collection_gallery.html facet_by='order' collection='sf' %}
+{% include collection_gallery.html facet_by='_date' collection='sf' %}
