@@ -1,0 +1,76 @@
+---
+layout: none
+---
+{
+  "@context": "http://iiif.io/api/presentation/2/context.json",
+  "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/collection/sf.json",
+  "@type": "sc:Collection",
+  "label": "sf",
+  "manifests": [
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf11/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf11"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf6/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf6"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf12/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf12"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf13/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf13"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf1/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf1"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf10/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf10"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf3/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf3"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf2/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf2"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf7/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf7"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf9/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf9"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf5/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf5"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf4/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf4"
+    },
+    {
+      "@id": "{{ '/' | absolute_url }}img/derivatives/iiif/sf8/manifest.json",
+      "@type": "sc:Manifest",
+      "label": "sf8"
+    }
+  ]
+}

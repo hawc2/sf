@@ -137,7 +137,3 @@ footer:
       link: 'https://gitter.im/minicomp/wax/'
   logos:
     - img: '/img/logo.png'
-
-# FIN
-
-theme: jekyll-theme-minimal
