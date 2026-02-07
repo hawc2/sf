@@ -244,9 +244,9 @@ content section
 
 
 .wax-inline-container {
-  @extend .container;
-
   margin: 0 auto;
+  padding-right: 15px;
+  padding-left: 15px;
   max-width: 90%;
   width: $max-width;
   overflow: flex-wrap;
@@ -423,14 +423,28 @@ search box
 .wax-gallery-container {
   .facet-buttons {
     .facet {
-      @extend .btn-outline-secondary;
+      display: inline-block;
+      font-weight: 400;
+      text-align: center;
+      vertical-align: middle;
+      user-select: none;
+      background-color: transparent;
+      border: 1px solid $text-color;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: .25rem;
+      color: $text-color;
+      cursor: pointer;
       margin-right: .5em;
       margin-top: 1rem;
       font-family: $heading-font;
-      border-color: $text-color;
+      &:hover {
+        background-color: $text-color;
+        color: $bg-color;
+      }
     }
-    .active{
-      @extend .facet;
+    .active {
       background-color: $text-color;
       color: $bg-color;
     }
