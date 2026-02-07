@@ -4,16 +4,16 @@
       {{ site.title | newline_to_br }}
     </a>
 
-    <button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#wax-header-navbar' aria-controls='wax-header-navbar' aria-expanded='false' aria-label='navigation'>
+    <button class='navbar-toggler' type='button' data-bs-toggle='collapse' data-bs-target='#wax-header-navbar' aria-controls='wax-header-navbar' aria-expanded='false' aria-label='navigation'>
       <span class='navbar-toggler-icon'></span>
     </button>
 
     <div class='collapse navbar-collapse' id="wax-header-navbar">
-      <ul class='nav navbar-nav ml-auto justify-content-end'>
+      <ul class='nav navbar-nav ms-auto justify-content-end'>
         {% for item in site.menu %}
           {% if item.sub %}
             <li class='nav-item dropdown'>
-              <a class='nav-link dropdown-toggle' href='#' id='wax-{{ item.label }}-dropdown' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
+              <a class='nav-link dropdown-toggle' href='#' id='wax-{{ item.label }}-dropdown' data-bs-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>
                 {{ item.label }}
               </a>
               <div class='dropdown-menu' aria-labelledby='wax-{{ item.label }}-dropdown'>
