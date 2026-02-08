@@ -1,0 +1,477 @@
+---
+layout: default
+---
+
+<article class="sf-post-detailed">
+  <header class="post-header">
+    <div class="post-meta-bar">
+      <span class="post-date">{{ page._date }}</span>
+      <span class="post-type">{% if page.writing %}Commentary{% else %}Photograph{% endif %}</span>
+    </div>
+
+    <h1 class="post-title">{{ page.label }}</h1>
+    <p class="post-subject">{{ page.subject }}</p>
+  </header>
+
+  <div class="post-body">
+    {% if page.writing and page.writing != '' %}
+      <!-- Layout for posts WITH commentary -->
+      <div class="post-layout-commentary">
+        <div class="commentary-image-section">
+          <div class="image-container">
+            {% include osd_iiif_image_viewer.html %}
+          </div>
+
+          <div class="image-caption">
+            <strong>{{ page.label }}</strong><br>
+            {{ page.subject }}<br>
+            <span class="image-date">{{ page._date }}</span>
+          </div>
+        </div>
+
+        <div class="commentary-text-section">
+          <div class="commentary-ornament">✦</div>
+          <div class="commentary-content">
+            {{ page.writing }}
+          </div>
+
+          <div class="commentary-footer">
+            <p class="commentary-attribution">— Samuel R. Delany</p>
+            <p class="commentary-source">Via Facebook, {{ page._date }}</p>
+          </div>
+
+          <div class="commentary-actions">
+            <button class="action-btn" onclick="window.print()">
+              <span>🖨️ Print</span>
+            </button>
+            <button class="action-btn" onclick="copyText()">
+              <span>📋 Copy Text</span>
+            </button>
+            <button class="action-btn" onclick="sharePost()">
+              <span>🔗 Share</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <!-- Layout for posts WITHOUT commentary (photos only) -->
+      <div class="post-layout-photo">
+        <div class="photo-viewer">
+          {% include osd_iiif_image_viewer.html %}
+        </div>
+
+        <div class="photo-info-sidebar">
+          <div class="info-section">
+            <h3>About This Image</h3>
+            <dl class="info-list">
+              <dt>Title</dt>
+              <dd>{{ page.label }}</dd>
+
+              <dt>Subject</dt>
+              <dd>{{ page.subject }}</dd>
+
+              <dt>Date</dt>
+              <dd>{{ page._date }}</dd>
+
+              {% if page.collection %}
+              <dt>Collection</dt>
+              <dd>{{ page.collection }}</dd>
+              {% endif %}
+            </dl>
+          </div>
+
+          <div class="info-section">
+            <h3>Context</h3>
+            <p class="photo-context">
+              {% if page._date < '1960' %}
+                An early photograph from Delany's childhood and family history.
+              {% elsif page._date >= '1960' and page._date < '1980' %}
+                Documentation from Delany's groundbreaking period as a science fiction writer.
+              {% else %}
+                A contemporary capture from Delany's ongoing documentation of life and thought.
+              {% endif %}
+            </p>
+          </div>
+
+          <div class="info-section">
+            <h3>Share & Use</h3>
+            <button class="sidebar-btn" onclick="downloadImage()">
+              Download Image
+            </button>
+            <button class="sidebar-btn" onclick="sharePost()">
+              Share This Item
+            </button>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  <nav class="post-navigation">
+    {% include item_pagination.html %}
+  </nav>
+
+  <aside class="post-related">
+    <h3>Explore More</h3>
+    <div class="related-links">
+      <a href="{{ '/timeline/' | relative_url }}" class="related-card">
+        <span class="card-icon">📅</span>
+        <span class="card-title">Timeline View</span>
+        <span class="card-desc">See all items chronologically</span>
+      </a>
+      <a href="{{ '/network/' | relative_url }}" class="related-card">
+        <span class="card-icon">🕸️</span>
+        <span class="card-title">Network Graph</span>
+        <span class="card-desc">Explore connections</span>
+      </a>
+      <a href="{{ '/typography/' | relative_url }}" class="related-card">
+        <span class="card-icon">✍️</span>
+        <span class="card-title">Typography</span>
+        <span class="card-desc">Experimental text layouts</span>
+      </a>
+    </div>
+  </aside>
+</article>
+
+<style>
+.sf-post-detailed {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.post-header {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  margin-bottom: 3rem;
+  border-radius: 8px;
+}
+
+.post-meta-bar {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.post-date, .post-type {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-family: monospace;
+  font-weight: bold;
+}
+
+.post-title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 900;
+}
+
+.post-subject {
+  font-size: 1.3rem;
+  opacity: 0.9;
+  font-style: italic;
+}
+
+/* Commentary Layout */
+.post-layout-commentary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.commentary-image-section {
+  position: sticky;
+  top: 2rem;
+  height: fit-content;
+}
+
+.image-container {
+  border: 3px solid #333;
+  background: #f4f4f4;
+  margin-bottom: 1rem;
+}
+
+.image-caption {
+  padding: 1rem;
+  background: #f9f9f9;
+  border: 2px solid #333;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.image-date {
+  font-family: monospace;
+  font-weight: bold;
+  color: #667eea;
+}
+
+.commentary-text-section {
+  padding: 2rem;
+  background: white;
+  border: 2px solid #333;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
+}
+
+.commentary-ornament {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #667eea;
+}
+
+.commentary-content {
+  font-size: 1.2rem;
+  line-height: 2;
+  margin-bottom: 2rem;
+  text-align: justify;
+  color: #333;
+}
+
+.commentary-footer {
+  border-top: 2px solid #ddd;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}
+
+.commentary-attribution {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #667eea;
+}
+
+.commentary-source {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+.commentary-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background: #f4f4f4;
+  border: 2px solid #333;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  min-width: 120px;
+}
+
+.action-btn:hover {
+  background: #333;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Photo Layout */
+.post-layout-photo {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.photo-viewer {
+  border: 3px solid #333;
+  background: #f4f4f4;
+  min-height: 600px;
+}
+
+.photo-info-sidebar {
+  background: white;
+  border: 2px solid #333;
+  padding: 2rem;
+}
+
+.info-section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid #ddd;
+}
+
+.info-section:last-child {
+  border-bottom: none;
+}
+
+.info-section h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #667eea;
+}
+
+.info-list {
+  margin: 0;
+}
+
+.info-list dt {
+  font-weight: bold;
+  margin-top: 0.75rem;
+  color: #333;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.info-list dd {
+  margin: 0.25rem 0 0 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.photo-context {
+  line-height: 1.8;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.sidebar-btn {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 0.75rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.sidebar-btn:hover {
+  background: #5568d3;
+  transform: translateX(5px);
+}
+
+/* Navigation */
+.post-navigation {
+  margin: 3rem 0;
+  padding: 2rem;
+  background: #f9f9f9;
+  border: 2px solid #333;
+  border-radius: 8px;
+}
+
+/* Related Section */
+.post-related {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: white;
+  border: 2px solid #333;
+}
+
+.post-related h3 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: #667eea;
+}
+
+.related-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.related-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background: #f9f9f9;
+  border: 2px solid #ddd;
+  text-decoration: none;
+  color: #333;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.related-card:hover {
+  border-color: #667eea;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #667eea;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .post-layout-commentary,
+  .post-layout-photo {
+    grid-template-columns: 1fr;
+  }
+
+  .commentary-image-section {
+    position: static;
+  }
+
+  .related-links {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media print {
+  .post-navigation,
+  .post-related,
+  .commentary-actions,
+  .sidebar-btn {
+    display: none;
+  }
+}
+</style>
+
+<script>
+function copyText() {
+  const content = document.querySelector('.commentary-content');
+  if (content) {
+    const text = content.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert('Text copied to clipboard!');
+    });
+  }
+}
+
+function sharePost() {
+  if (navigator.share) {
+    navigator.share({
+      title: document.title,
+      url: window.location.href
+    }).catch(err => console.log('Share failed:', err));
+  } else {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      alert('Link copied to clipboard!');
+    });
+  }
+}
+
+function downloadImage() {
+  alert('Download functionality would be implemented here');
+}
+</script>
