@@ -18,10 +18,10 @@
 # Feel free to change these! For more info, refer to:
 # ~> https://jekyllrb.com/docs/configuration/options/
 
-title:            'SF'
+title:            'Speculative Facebooks'
 description:      'Speculative Facebooks'
 url:              'https://hawc2.github.io'
-baseurl:          '/sf'
+baseurl:          '/speculative-facebooks'
 copyright:        'Example copyright org, 2019'
 logo:             '/img/logo.png'
 

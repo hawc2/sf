@@ -23,7 +23,7 @@ jobs:
           ruby-version: '3.2'
           bundler-cache: true
       - name: Build site
-        run: bundle exec jekyll build --baseurl "/sf"
+        run: bundle exec jekyll build --baseurl "/speculative-facebooks"
         env:
           JEKYLL_ENV: production
       - uses: actions/upload-pages-artifact@v3
